@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="header">
+        <img src="images/kalla.png" alt="Kalla Logo" class="logo">
+        <h1 class="title"></h1>
+        <div class="buttons">
+            <button class="home-button" onclick="window.open('https://kalla.co.id/home', '_blank')">Home</button>
+            <button class="map-button" id="toggle-button" onclick="toggleView()">Map</button>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <!-- Looker Report (Initially Visible) -->
+        <div class="looker-container active" id="looker-report">
+            <iframe 
+                src="https://lookerstudio.google.com/embed/reporting/11946a8f-3d20-4574-9e5f-f4292679e183/page/l4MuE"
+                frameborder="0"
+                allowfullscreen
+                sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+            </iframe>
+        </div>
+
+        <!-- Map Section (Initially Hidden) -->
+        <div class="map-container" id="map-section">
+            <iframe src="map.html" sandbox="allow-scripts allow-same-origin"></iframe>
+        </div>
+    </div>
+
+    <script>
+        function toggleView() {
+            let looker = document.getElementById("looker-report");
+            let map = document.getElementById("map-section");
+            let button = document.getElementById("toggle-button");
+
+            if (map.classList.contains("active")) {
+                looker.classList.add("active");
+                map.classList.remove("active");
+                button.textContent = "Map";
+            } else {
+                looker.classList.remove("active");
+                map.classList.add("active");
+                button.textContent = "Exit Full Screen";
+            }
+        }
+    </script>
+
+</body>
+</html>

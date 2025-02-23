@@ -1,0 +1,140 @@
+/* Base Styles */
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f8f9fa;
+    height: 100vh;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Header & Button */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding: 10px;
+    background: white;
+    border-bottom: 2px solid #ddd;
+}
+
+/* Logo Adjustments */
+.logo {
+    height: 50px;
+}
+
+/* Button Group */
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Buttons */
+.home-button,
+.map-button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.home-button {
+    background-color: #007E48;
+    color: white;
+}
+
+.map-button {
+    background-color: #007bff;
+    color: white;
+}
+
+.map-button:hover {
+    background-color: #0056b3;
+}
+
+/* Main Container */
+.main-container {
+    height: 80vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Sections */
+.looker-container,
+.map-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Initially, Show Looker */
+.looker-container {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Active Class */
+.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Iframe */
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header {
+        justify-content: flex-start;
+        padding: 10px 15px;
+    }
+
+    .logo {
+        height: 40px; /* Smaller logo */
+    }
+
+    .buttons {
+        gap: 5px;
+    }
+
+    .home-button,
+    .map-button {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+}
+@media (max-width: 768px) {
+    .logo {
+        height: 25px; /* Half the original size */
+    }
+
+    .header {
+        padding: 5px; /* Reduce padding for better alignment */
+    }
+
+    .buttons {
+        display: flex;
+        gap: 5px; /* Reduce space between buttons */
+    }
+
+    .home-button, .map-button {
+        padding: 8px 12px; /* Slightly smaller buttons */
+        font-size: 0.9rem; /* Reduce text size */
+    }
+}
