@@ -9,7 +9,7 @@ var map = new ol.Map({
 });
 
 //initial view - epsg:3857 coordinates if not "Match project CRS"
-map.getView().fit([10816139.711157, -1061458.001309, 15436686.397437, 1073472.475776], map.getSize());
+map.getView().fit([13325767.858271, -344930.190084, 13537832.208280, -254157.737679], map.getSize());
 
 ////small screen definition
     var hasTouchScreen = map.getViewport().classList.contains('ol-touch');
@@ -838,17 +838,6 @@ document.getElementsByClassName('gcd-gl-btn')[0].className += ' fa fa-search';
 
 //layer search
 
-var searchLayer = new SearchLayer({
-    layer: lyr_WIUPTambang_3,
-    colName: 'nama_usaha',
-    zoom: 10,
-    collapsed: true,
-    map: map
-});
-map.addControl(searchLayer);
-document.getElementsByClassName('search-layer')[0].getElementsByTagName('button')[0].className += ' fa fa-binoculars';
-document.getElementsByClassName('search-layer-input-search')[0].placeholder = 'Search feature ...';
-    
 
 //scalebar
 
