@@ -13,24 +13,24 @@
         <h1 class="title"></h1>
         <div class="buttons">
             <button class="home-button" onclick="window.open('https://kalla.co.id/home', '_blank')">Home</button>
-            <button class="map-button" id="toggle-button" onclick="toggleView()">Map</button>
+            <button class="map-button" id="toggle-button" onclick="toggleView()">Looker</button>
         </div>
     </div>
 
     <div class="main-container">
-        <!-- Looker Report (Initially Visible) -->
-        <div class="looker-container active" id="looker-report">
+        <!-- Map Section (Initially Visible) -->
+        <div class="map-container active" id="map-section">
+            <iframe src="map.html" sandbox="allow-scripts allow-same-origin"></iframe>
+        </div>
+
+        <!-- Looker Report (Initially Hidden) -->
+        <div class="looker-container" id="looker-report">
             <iframe 
                 src="https://lookerstudio.google.com/embed/reporting/11946a8f-3d20-4574-9e5f-f4292679e183/page/l4MuE"
                 frameborder="0"
                 allowfullscreen
                 sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
             </iframe>
-        </div>
-
-        <!-- Map Section (Initially Hidden) -->
-        <div class="map-container" id="map-section">
-            <iframe src="map.html" sandbox="allow-scripts allow-same-origin"></iframe>
         </div>
     </div>
 
@@ -40,14 +40,16 @@
             let map = document.getElementById("map-section");
             let button = document.getElementById("toggle-button");
 
-            if (map.classList.contains("active")) {
-                looker.classList.add("active");
-                map.classList.remove("active");
-                button.textContent = "Map";
-            } else {
+            if (looker.classList.contains("active")) {
+                // Switch to Map
                 looker.classList.remove("active");
                 map.classList.add("active");
-                button.textContent = "Exit Full Screen";
+                button.textContent = "Looker";
+            } else {
+                // Switch to Looker
+                map.classList.remove("active");
+                looker.classList.add("active");
+                button.textContent = "Map";
             }
         }
     </script>

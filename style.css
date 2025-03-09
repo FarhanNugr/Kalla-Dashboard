@@ -1,11 +1,13 @@
 /* Base Styles */
 body {
     margin: 0;
-    padding: 20px;
+    padding: 0;
     font-family: 'Segoe UI', Arial, sans-serif;
     background-color: #f8f9fa;
     height: 100vh;
-    transition: all 0.3s ease-in-out;
+    overflow: hidden; /* Prevent scrolling on the body */
+    display: flex;
+    flex-direction: column; /* Arrange header and main-container vertically */
 }
 
 /* Header & Button */
@@ -13,10 +15,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 1rem;
-    padding: 10px;
+    padding: 10px 20px; /* Add padding to the sides */
     background: white;
     border-bottom: 2px solid #ddd;
+    box-sizing: border-box; /* Ensure padding is included in width */
+    width: 100%; /* Ensure header takes full width */
+    flex-shrink: 0; /* Prevent header from shrinking */
 }
 
 /* Logo Adjustments */
@@ -57,9 +61,11 @@ body {
 
 /* Main Container */
 .main-container {
-    height: 80vh;
+    flex-grow: 1; /* Take remaining space after header */
     position: relative;
-    overflow: hidden;
+    overflow: hidden; /* Prevent scrolling inside the container */
+    width: 100%; /* Ensure full width */
+    box-sizing: border-box; /* Ensure padding is included in width */
 }
 
 /* Sections */
@@ -76,10 +82,11 @@ body {
     transition: opacity 0.3s ease-in-out;
     opacity: 0;
     visibility: hidden;
+    box-sizing: border-box; /* Ensure padding is included in width */
 }
 
-/* Initially, Show Looker */
-.looker-container {
+/* Initially, Show Map */
+.map-container.active {
     opacity: 1;
     visibility: visible;
 }
@@ -119,6 +126,7 @@ iframe {
         padding: 8px 12px;
     }
 }
+
 @media (max-width: 768px) {
     .logo {
         height: 25px; /* Half the original size */
