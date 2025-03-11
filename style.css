@@ -68,8 +68,7 @@ body {
     box-sizing: border-box; /* Ensure padding is included in width */
 }
 
-/* Sections */
-.looker-container,
+/* Map Section */
 .map-container {
     width: 100%;
     height: 100%;
@@ -79,22 +78,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: opacity 0.3s ease-in-out;
-    opacity: 0;
-    visibility: hidden;
     box-sizing: border-box; /* Ensure padding is included in width */
-}
-
-/* Initially, Show Map */
-.map-container.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* Active Class */
-.active {
-    opacity: 1 !important;
-    visibility: visible !important;
 }
 
 /* Iframe */
